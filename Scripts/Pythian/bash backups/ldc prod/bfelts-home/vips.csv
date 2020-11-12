@@ -1,0 +1,226 @@
+vs name, destination, pool, pool members, monitor
+Vs_ibe_api_avail-request-t5_80,10.80.72.162:http,Pool_api_avail-request-t5,10.80.89.146 10.80.89.147, Monitor_api_avail-request-t5_80
+Vs_ibe_api_hoteldesc-request-t5_80,10.80.72.163:http,Pool_api_hoteldesc-request-t5,10.80.89.146 10.80.89.147, Monitor_api_avail-request-t5_80
+Vs_ibe_api_reservations-request-t5_80,10.80.72.164:http,Pool_api_reservations-request-t5,10.80.89.146 10.80.89.147, Monitor_api_avail-request-t5_80
+Vs_ibe_api_specialcodes-request-t5_80,10.80.72.165:http,Pool_api_specialcodes-request-t5,10.80.89.146 10.80.89.147, Monitor_api_avail-request-t5_80
+Vs_ibe_console-api-jwt_request-t5_80,10.80.72.166:http,Pool_ibe_console-api-jwt_request-t5,10.80.89.148 10.80.89.149, Monitor_api_avail-request-t5_80
+Vs_notifications-t5.travelclick.com_80,10.80.72.202:http,N/A,N/A,N/A
+Vs_notifications-t5.travelclick.com_443,10.80.72.202:https,Pool_notifications-t5,10.80.89.170 10.80.89.171 10.80.89.172, gateway_icmp
+Vs_notifications-t6.travelclick.com_80,10.80.72.201:http,N/A,N/A,N/A
+Vs_notifications-t6.travelclick.com_443,10.80.72.201:https,Pool_notifications-t6,10.80.89.137, monitor_notifications-t6
+gm.travelclick.com_http,10.80.72.126:http,gm_ui,10.80.30.103 10.80.30.104 10.80.30.105 10.80.30.106, gm_ui_monitoring
+gm.travelclick.com_http_pre-rpod,10.80.72.143:http,gm_ui_pre-prod,10.80.82.79 10.80.82.80, gm_ui_monitoring
+gm.travelclick.com_https,10.80.72.126:https,gm_ui,10.80.30.103 10.80.30.104 10.80.30.105 10.80.30.106, gm_ui_monitoring
+gm.travelclick.com_https_pre-prod,10.80.72.143:https,gm_ui_pre-prod,10.80.82.79 10.80.82.80, gm_ui_monitoring
+gminbox.travelclick.com,10.80.72.129:smtp,gm_smtp_inbound,10.80.30.153 10.80.30.154, tcp
+gminbox.travelclick.com_pre-prod,10.80.72.146:smtp,gm_smtp_inbound_pre-rod,10.80.82.47 10.80.82.48
+gminterfaces.travelclick.com,10.80.72.130:smtp,gm_smtp_interfaces,10.80.30.101 10.80.30.102, smtp_monitor
+gminterfaces.travelclick.com_pre-prod,10.80.72.147:smtp,gm_smtp_interfaces_pre-prod,10.80.82.37 10.80.82.38, tcp
+gmmaintenance.travelclick.com,10.80.72.133:http,gm_maintenance,10.80.30.140 10.80.30.141, tcp
+gmmaintenance.travelclick.com_81,10.80.72.133:hosts2-ns,gm_maintenance,10.80.30.140 10.80.30.141, tcp
+gmmaintenance.travelclick.com_81_pre-prod,10.80.72.150:hosts2-ns,gm_maintenance_pre-prod,10.80.82.51 10.80.82.52
+gmmaintenance.travelclick.com_444,10.80.72.133:snpp,gm_maintenance,10.80.30.140 10.80.30.141, tcp
+gmmaintenance.travelclick.com_444_pre-prod,10.80.72.150:snpp,gm_maintenance_pre-prod,10.80.82.51 10.80.82.52
+gmmaintenance.travelclick.com_4443,10.80.72.133:pharos,gm_maintenance,10.80.30.140 10.80.30.141, tcp
+gmmaintenance.travelclick.com_4443_pre-prod,10.80.72.150:pharos,gm_maintenance_pre-prod,10.80.82.51 10.80.82.52
+gmmaintenance.travelclick.com_8443,10.80.72.133:pcsync-https,gm_maintenance,10.80.30.140 10.80.30.141, tcp
+gmmaintenance.travelclick.com_8443_pre-prod,10.80.72.150:pcsync-https,gm_maintenance_pre-prod,10.80.82.51 10.80.82.52
+gmmaintenance.travelclick.com_https,10.80.72.133:https,gm_maintenance,10.80.30.140 10.80.30.141, tcp
+gmmaintenance.travelclick.com_https_pre-prod,10.80.72.150:https,gm_maintenance_pre-prod,10.80.82.51 10.80.82.52
+gmmaintenance.travelclick.com_pre-prod,10.80.72.150:http,gm_maintenance_pre-prod,10.80.82.51 10.80.82.52
+gmscprt.travelclick.com,10.80.72.132:smtp,gm_smtp_script,10.80.30.122 10.80.30.123, tcp
+gmscprt.travelclick.com_pre-prod,10.80.72.149:smtp,gm_smtp_script,10.80.30.122 10.80.30.123, tcp
+gmsftp.travelclick.com,10.80.72.131:ssh,gm_ftp_interfaces,10.80.30.51 10.80.30.51 10.80.30.52 10.80.30.52, tcp
+gmsftp.travelclick.com_pre-prod,10.80.72.148:ssh,gm_ftp_interfaces_pre-prod,10.80.82.73 10.80.82.74
+pool_origin-console-t4.travelclick.com_80,10.80.72.118:http,pool_origin-console-t4,10.80.89.59, monitor_reservations-t1
+pool_origin-console-t4.travelclick.com_443,10.80.72.118:https,pool_origin-console-t4,10.80.89.59, monitor_reservations-t1
+pool_origin-reservations-t4.travelclick.com_80,10.80.72.117:http,pool_origin-reservations-t4,10.80.89.59, monitor_reservations-t1
+pool_origin-reservations-t4.travelclick.com_443,10.80.72.117:https,pool_origin-reservations-t4,10.80.89.59, monitor_reservations-t1
+rate360-dr.travelclick_443,10.80.72.136:https,pool_PQR,10.80.89.121, Monitor_PQR
+rezqueue.com_http,10.80.72.128:http,gm_rezqueue,10.80.30.107 10.80.30.108, GM_rezqueue_monitoring
+rezqueue.com_http_pre-prod,10.80.72.145:http,gm_rezqueue_pre-prod,10.80.82.69 10.80.82.70, GM_rezqueue_monitoring
+rezqueue.com_https,10.80.72.128:https,gm_rezqueue,10.80.30.107 10.80.30.108, GM_rezqueue_monitoring
+rezqueue.com_https_pre-prod,10.80.72.145:https,gm_rezqueue_pre-prod,10.80.82.69 10.80.82.70, GM_rezqueue_monitoring
+tcgms.net_http,10.80.72.124:http,gm_web,10.80.30.55 10.80.30.56 10.80.30.57 10.80.30.58 10.80.30.59, GM_web_monitoring
+tcgms.net_http_pre-prod,10.80.72.141:http,gm_web_pre-prod,10.80.82.81 10.80.82.82, GM_web_monitoring
+tcgms.net_https,10.80.72.124:https,gm_web,10.80.30.55 10.80.30.56 10.80.30.57 10.80.30.58 10.80.30.59, GM_web_monitoring
+tcgms.net_https_pre-prod,10.80.72.141:https,gm_web_pre-prod,10.80.82.81 10.80.82.82, GM_web_monitoring
+tokws-dev.travelclick.com_80,10.80.72.7:webcache,pool_tokws-dev.travelclick.com,10.80.26.32 10.80.26.33, http
+tokws-dev.travelclick.com_443,10.80.72.7:https,pool_tokws-dev.travelclick.com,10.80.26.32 10.80.26.33, http
+vs_Origin_serch_t4_80,10.80.72.59:http,Pool_Origin_search_t4,10.80.89.59, Monitor_Origin_search_t4
+vs_Origin_serch_t4_443,10.80.72.59:https,Pool_Origin_search_t4,10.80.89.59, Monitor_Origin_search_t4
+vs_admin-scraper.ihotelier.com_443,10.80.72.89:https,pool_dev-admin-scrapers,10.80.16.94 10.80.16.95 10.80.16.96 10.80.16.97 10.80.16.98 10.80.16.99 10.80.16.100 10.80.16.101 10.80.16.102, http
+vs_admin-t4.ihotelier.com_80,10.80.72.25:http,pool_admin-t4.ihotelier.com,10.10.64.19 10.80.89.65, http
+vs_admin-t4.ihotelier.com_443,10.80.72.25:https,pool_admin-t4.ihotelier.com,10.10.64.19 10.80.89.65, http
+vs_admin-t5.ihotelier.com_80,10.80.72.4:http,N/A,N/A,N/A
+vs_admin-t5.ihotelier.com_443,10.80.72.4:https,pool_admin-t5.ihotelier.com,10.80.80.36 10.80.80.33, http
+vs_admin-t6.ihotelier.com,10.80.72.6:http,N/A,N/A,N/A
+vs_admin-t6.ihotelier.com_443,10.80.72.6:https,pool_admin-t6.ihotelier.com,10.80.80.30, http
+vs_admin.ihotelier.com_443,10.80.72.95:https,pool_admin.ihotelier.com,10.80.16.90 10.80.16.91 10.80.16.92 10.80.16.93, http
+vs_admincf10.ihotelier.com_80,10.80.72.5:http,pool_admincf10.ihotelier.com,10.80.16.89 10.80.16.90 10.80.16.91 10.80.16.92 10.80.16.93 10.80.16.94 10.80.16.95 10.80.16.96 10.80.16.97 10.80.16.98 10.80.16.99, http
+vs_admincf10.ihotelier.com_443,10.80.72.5:https,pool_admincf10.ihotelier.com,10.80.16.89 10.80.16.90 10.80.16.91 10.80.16.92 10.80.16.93 10.80.16.94 10.80.16.95 10.80.16.96 10.80.16.97 10.80.16.98 10.80.16.99, http
+vs_bisftp.ilcb.tcprod.local,10.80.72.231:ssh,pool_bisftp.ilcb.tcprod.local,10.80.25.121, gateway_icmp
+vs_booking-t4.ihotelier.com_80,10.80.72.27:http,N/A,N/A,N/A
+vs_booking-t4.ihotelier.com_443,10.80.72.27:https,pool_booking-t4.ihotelier.com,10.10.64.20, http
+vs_booking-t5.ihotelier.com_80,10.80.72.29:http,N/A,N/A,N/A
+vs_booking-t5.ihotelier.com_443,10.80.72.29:https,pool_booking-t5.ihotelier.com,10.10.64.32 10.10.65.105 10.10.65.108, http
+vs_booking-t6.ihotelier.com_80,10.80.72.26:http,N/A,N/A,N/A
+vs_booking-t6.ihotelier.com_443,10.80.72.26:https,pool_booking-t6.ihotelier.com,10.10.66.40, http
+vs_bookings-t4.ihotelier.com_80,10.80.72.19:http,N/A,N/A,N/A
+vs_bookings-t4.ihotelier.com_443,10.80.72.19:https,pool_bookings-t4.ihotelier.com,10.10.64.109, http
+vs_bookings-t5.ihotelier.com_80,10.80.72.18:http,N/A,N/A,N/A
+vs_bookings-t5.ihotelier.com_443,10.80.72.18:https,pool_bookings-t5.ihotelier.com,10.10.65.105 10.10.65.108, Web30Check
+vs_bookings-t6.ihotelier.com_80,10.80.72.161:http,N/A,N/A,N/A
+vs_bookings-t6.ihotelier.com_443,10.80.72.161:https,pool_bookings-t6.ihotelier.com,10.10.65.130, gateway_icmp
+vs_callcenter15-t5.ihotelier.com_80,10.80.72.81:http,N/A,N/A,N/A
+vs_callcenter15-t5.ihotelier.com_443,10.80.72.81:https,pool_callcenter15-t5.ihotelier.com,10.10.65.24 10.10.65.30, http
+vs_callcenter15-t6.ihotelier.com_80,10.80.72.78:http,pool_callcenter15-t6.ihotelier.com,10.10.65.114, tcp
+vs_callcenter15-t6.ihotelier.com_443,10.80.72.78:https,pool_callcenter15-t6.ihotelier.com,10.10.65.114, tcp
+vs_callcenter15.ihotelier.com_443,10.80.72.93:https,pool_callcenter15-t5.ihotelier.com,10.10.65.24 10.10.65.30, http
+vs_cert-test-ldc.travelclick.com_443,10.80.72.254:https,N/A,N/A,N/A
+vs_chtllm01,10.80.72.100:xmpp-client,pool_chtllm01,10.10.65.100, gateway_icmp
+vs_config-t5.travelclick.com_80,10.80.72.21:http,N/A,N/A,N/A
+vs_config-t5.travelclick.com_443,10.80.72.21:https,pool_config-t5.travelclick.com,10.80.89.135, monitor_config-t5.travelclick.com
+vs_config-t6.travelclick.com_80,10.80.72.22:http,N/A,N/A,N/A
+vs_config-t6.travelclick.com_443,10.80.72.22:https,pool_config-t6.travelclick.com,10.80.89.55, monitor_config-t6.travelclick.com
+vs_connect-cert.ihotelier.com_80,10.80.72.97:http,Pool_connect-cert,10.80.94.94 10.80.94.93, Monitor_connect-cert
+vs_connect-cert.ihotelier.com_443,10.80.72.97:https,Pool_connect-cert,10.80.94.94 10.80.94.93, Monitor_connect-cert
+vs_connect.ihotelier.com_443,10.80.72.90:https,pool_connect.ihotelier.com,10.80.24.201 10.80.24.202 10.80.24.35 10.80.24.36 10.80.24.70, http_health_basic
+vs_console-c1.ihotelier.com_80,10.80.72.84:http,pool_console-c1.ihotelier.com,10.80.94.71 10.80.94.72, http
+vs_console-c1.ihotelier.com_443,10.80.72.84:https,pool_console-c1.ihotelier.com,10.80.94.71 10.80.94.72, http
+vs_console-d1.travelclick.com_80,10.80.72.116:http,pool_console-t4.travelclick.com,10.80.89.140, monitor_reservations-d1
+vs_console-d1.travelclick.com_443,10.80.72.116:https,pool_console-t4.travelclick.com,10.80.89.140, monitor_reservations-d1
+vs_console-t5.ihotelier.com_80,10.80.72.31:http,N/A,N/A,N/A
+vs_console-t5.ihotelier.com_443,10.80.72.31:https,pool_console-t5.ihotelier.com,10.10.65.109 10.10.65.131, http
+vs_console-t6.ihotelier.com_80,10.80.72.28:http,N/A,N/A,N/A
+vs_console-t6.ihotelier.com_443,10.80.72.28:https,pool_console-t6.ihotelier.com,10.10.65.85, http
+vs_dev-admin.ihotelier.com_80,10.80.72.3:http,N/A,N/A,N/A
+vs_dev-admin.ihotelier.com_443,10.80.72.3:https,pool_dev-admin.ihotelier.com,10.80.16.90 10.80.16.91 10.80.16.92 10.80.16.93, http
+vs_dev-callcenter15.ihotelier.com_80,10.80.72.12:http,N/A,N/A,N/A
+vs_dev-callcenter15.ihotelier.com_443,10.80.72.12:https,pool_dev-callcenter15.ihotelier.com,10.80.16.64 10.80.16.65 10.80.16.66, http_health_basic
+vs_dev-imanager.ihotelier.com_80,10.80.72.24:http,N/A,N/A,N/A
+vs_dev-imanager.ihotelier.com_443,10.80.72.24:https,pool_imanager10.ihotelier.com,10.80.16.83 10.80.16.84, http
+vs_dev_admin-v1.ihotelier.com_80,10.80.72.62:http,N/A,N/A,N/A
+vs_dev_admin-v1.ihotelier.com_443,10.80.72.62:https,pool_dev_admin-v1.ihotelier.com,10.80.16.70, http
+vs_dev_api-cd.ihotelier.com_80,10.80.72.215:http,pool_dev_api-cd.ihotelier.com,10.80.24.20 10.80.24.21 10.80.24.22, http
+vs_dev_api-cd.ihotelier.com_443,10.80.72.215:https,pool_dev_api-cd.ihotelier.com,10.80.24.20 10.80.24.21 10.80.24.22, http
+vs_dev_api-ihos.ihotelier.com_80,10.80.72.221:http,pool_dev_api-ihos.ihotelier.com,10.80.24.20 10.80.24.21, http
+vs_dev_api-ihos.ihotelier.com_443,10.80.72.221:https,pool_dev_api-ihos.ihotelier.com,10.80.24.20 10.80.24.21, http
+vs_dev_booking.ihotelier.com_80,10.80.72.50:http,N/A,N/A,N/A
+vs_dev_booking.ihotelier.com_443,10.80.72.50:https,pool_dev_booking.ihotelier.com,10.80.16.35 10.80.16.37 10.80.16.38, http
+vs_dev_bookings.ihotelier.com_80,10.80.72.54:http,N/A,N/A,N/A
+vs_dev_bookings.ihotelier.com_443,10.80.72.54:https,pool_dev_bookings.ihotelier.com,10.80.16.105 10.80.16.106 10.80.16.107 10.80.16.108 10.80.16.20 10.80.16.21 10.80.16.23 10.80.16.24, Web30Check
+vs_dev_callcenter.ihotelier.com_80,10.80.72.51:http,N/A,N/A,N/A
+vs_dev_callcenter.ihotelier.com_443,10.80.72.51:https,pool_dev_callcenter.ihotelier.com,10.80.16.60 10.80.16.61 10.80.16.62 10.80.16.63, http
+vs_dev_connect.ihotelier.com_80,10.80.72.77:http,N/A,N/A,N/A
+vs_dev_connect.ihotelier.com_443,10.80.72.77:https,pool_dev_connect.ihotelier.com,10.80.24.35 10.80.24.36 10.80.24.70, http_health_basic
+vs_dev_console.ihotelier.com_80,10.80.72.61:http,N/A,N/A,N/A
+vs_dev_console.ihotelier.com_443,10.80.72.61:https,pool_dev_console.ihotelier.com,10.80.25.50 10.80.25.51 10.80.25.52, http
+vs_dev_csgateway.ihotelier.com_80,10.80.72.180:http,pool_dev_ota.ihotelier.com,10.80.24.22 10.80.24.23, http
+vs_dev_csgateway.ihotelier.com_443,10.80.72.180:https,pool_dev_ota.ihotelier.com,10.80.24.22 10.80.24.23, http
+vs_dev_gmsapps.travelclick.com_80,10.80.72.224:http,pool_dev_gmsapps.travelclick.com,10.80.18.20, gateway_icmp
+vs_dev_gmsapps.travelclick.com_443,10.80.72.224:https,pool_dev_gmsapps.travelclick.com,10.80.18.20, gateway_icmp
+vs_dev_mobile.ihotelier.com_80,10.80.72.60:http,N/A,N/A,N/A
+vs_dev_mobile.ihotelier.com_443,10.80.72.60:https,pool_dev_mobile.ihotelier.com,10.80.16.25 10.80.16.26 10.80.16.27, http
+vs_dev_ota2.ihotelier.com_80,10.80.72.222:http,pool_dev_ota2.ihotelier.com,10.80.24.141 10.80.24.60 10.80.24.61, http
+vs_dev_ota2.ihotelier.com_443,10.80.72.222:https,pool_dev_ota2.ihotelier.com,10.80.24.141 10.80.24.60 10.80.24.61, http
+vs_dev_ota.ihotelier.com_80,10.80.72.223:http,pool_dev_ota.ihotelier.com,10.80.24.22 10.80.24.23, http
+vs_dev_ota.ihotelier.com_443,10.80.72.223:https,pool_dev_ota.ihotelier.com,10.80.24.22 10.80.24.23, http
+vs_dev_pmsconnect.ihotelier.com_80,10.80.72.87:http,N/A,N/A,N/A
+vs_dev_pmsconnect.ihotelier.com_443,10.80.72.87:https,pool_dev_pmsconnect.ihotelier.com,10.80.24.140 10.80.24.57, http_31_seconds
+vs_exch2010_80,10.80.72.181:http,pool_excaswlm_80,10.80.28.38 10.80.28.40, gateway_icmp
+vs_exch2010_443,10.80.72.181:https,pool_excaswlm_443,10.80.28.38 10.80.28.40, gateway_icmp
+vs_exch2010_smtp,10.80.72.181:smtp,pool_excaswlm_smtp,10.80.28.38 10.80.28.40, gateway_icmp
+vs_expedia-t5.ihotelier.com_80,10.80.72.32:http,pool_expedia-t5.ihotelier.com,10.10.64.38, http
+vs_expedia-t5.ihotelier.com_443,10.80.72.32:https,pool_expedia-t5.ihotelier.com,10.10.64.38, http
+vs_gap-api-t5.ihotelier.com_80,10.80.72.46:http,pool_gap-api-t5.ihotelier.com,10.80.89.60, http
+vs_gap-api-t5.ihotelier.com_443,10.80.72.46:https,pool_gap-api-t5.ihotelier.com,10.80.89.60, http
+vs_gap-api-t6.ihoteler.com_80,10.80.72.47:http,pool_gap-api-t6.ihoteler.com,10.80.89.61, http
+vs_gap-api-t6.ihoteler.com_443,10.80.72.47:https,pool_gap-api-t6.ihoteler.com,10.80.89.61, http
+vs_gminbox.travelclick.com_25,10.80.72.200:smtp,pool_gminbox.travelclick.com,10.80.30.153 10.80.30.154, tcp
+vs_gmsapps.travelclick.com_80,10.80.72.70:http,pool_gmsapps.travelclick.com,10.80.17.72 10.80.17.71, http
+vs_gmsapps.travelclick.com_443,10.80.72.70:https,pool_gmsapps.travelclick.com,10.80.17.72 10.80.17.71, http
+vs_imanager10.ihotelier.com_80,10.80.72.10:http,N/A,N/A,N/A
+vs_imanager10.ihotelier.com_443,10.80.72.10:https,pool_imanager10.ihotelier.com,10.80.16.83 10.80.16.84, http
+vs_imanager-t4.ihotelier.com_80,10.80.72.8:http,N/A,N/A,N/A
+vs_imanager-t4.ihotelier.com_443,10.80.72.8:https,pool_imanager-t4.ihotelier.com,10.80.89.66 10.80.89.212, http
+vs_imanager-t5.ihotelier.com_80,10.80.72.9:http,N/A,N/A,N/A
+vs_imanager-t5.ihotelier.com_443,10.80.72.9:https,pool_imanager-t5.ihotelier.com,10.80.80.34, http
+vs_imanager-t6.ihotelier.com_80,10.80.72.11:http,N/A,N/A,N/A
+vs_imanager-t6.ihotelier.com_443,10.80.72.11:https,pool_imanager-t6.ihotelier.com,10.80.80.31, http
+vs_imanager.ihotelier.com_443,10.80.72.94:https,pool_imanager.ihotelier.com,10.80.16.83 10.80.16.84, http
+vs_insite-d1.travelclick.com_80,10.80.72.23:http,N/A,N/A,N/A
+vs_insite-d1.travelclick.com_443,10.80.72.23:https,pool_insite-d1.travelclick.com,10.10.65.137, monitor_insite-d1
+vs_m-t4.ihotelier.com_80,10.80.72.72:http,N/A,N/A,N/A
+vs_m-t4.ihotelier.com_443,10.80.72.72:https,pool_m-t4.ihotelier.com,10.80.88.81, http
+vs_m-t5.ihotelier.com_80,10.80.72.73:http,N/A,N/A,N/A
+vs_m-t5.ihotelier.com_443,10.80.72.73:https,pool_m-t5.ihotelier.com,10.80.88.82 10.80.88.84, http
+vs_m-t6.ihotelier.com_80,10.80.72.71:http,pool_m-t6.ihotelier.com,10.80.88.83, http
+vs_m-t6.ihotelier.com_443,10.80.72.71:https,pool_m-t6.ihotelier.com,10.80.88.83, http
+vs_m.ihotelier.com_443,10.80.72.91:https,pool_m.ihotelier.com,10.80.24.81 10.80.24.82 10.80.24.83, http
+vs_mobile-t4.ihotelier.com_80,10.80.72.80:http,pool_mobile-t4.ihotelier.com,10.10.64.20, http
+vs_mobile-t4.ihotelier.com_443,10.80.72.80:https,pool_mobile-t4.ihotelier.com,10.10.64.20, http
+vs_mobile-t5.ihotelier.com_80,10.80.72.35:http,N/A,N/A,N/A
+vs_mobile-t5.ihotelier.com_443,10.80.72.35:https,pool_mobile-t5.ihotelier.com,10.10.65.87, http
+vs_mobile-t6.ihotelier.com_80,10.80.72.34:http,N/A,N/A,N/A
+vs_mobile-t6.ihotelier.com_443,10.80.72.34:https,pool_m-t6.ihotelier.com,10.80.88.83, http
+vs_mobile.ihotelier.com_443,10.80.72.92:https,pool_mobile.ihotelier.com,10.80.16.25 10.80.16.26 10.80.16.27, http
+vs_origin-console-perf.travelclick.com_80,10.80.72.134:http,N/A,N/A,N/A
+vs_origin-console-perf.travelclick.com_443,10.80.72.134:https,pool_origin-console-perf,10.30.24.110 10.30.24.111, monitor_reservations-perf
+vs_origin-console-t5.travelclick.com_80,10.80.72.119:http,N/A,N/A,N/A
+vs_origin-console-t5.travelclick.com_443,10.80.72.119:https,pool_origin-console-t5.travelclick.com,10.80.89.144 10.80.89.145, Monitor_origin-console-t5
+vs_origin-console-t6.travelclick.com_80,10.80.72.123:http,N/A,N/A,N/A
+vs_origin-console-t6.travelclick.com_443,10.80.72.123:https,pool_origin-console-t6.travelclick.com,10.80.89.100, monitor_origin-reservations-t6
+vs_origin-reservations-perf.travelclick.com_80,10.80.72.135:http,N/A,N/A,N/A
+vs_origin-reservations-perf.travelclick.com_443,10.80.72.135:https,pool_origin-reservations-perf,10.30.24.110 10.30.24.111, monitor_reservations-perf
+vs_origin-reservations-t5.travelclick.com_80,10.80.72.120:http,N/A,N/A,N/A
+vs_origin-reservations-t5.travelclick.com_443,10.80.72.120:https,pool_origin-reservations-t5.travelclick.com,10.80.89.144 10.80.89.145, Monitor_origin-console-t5
+vs_origin-reservations-t6.travelclick.com_80,10.80.72.122:http,N/A,N/A,N/A
+vs_origin-reservations-t6.travelclick.com_443,10.80.72.122:https,pool_origin-reservations-t6,10.80.89.100, monitor_origin-reservations-t6
+vs_ota2-t5.ihotelier.com_80,10.80.72.41:http,pool_ota2-t5.ihotelier.com,10.10.65.78, http
+vs_ota2-t5.ihotelier.com_443,10.80.72.41:https,pool_ota2-t5.ihotelier.com,10.10.65.78, http
+vs_ota2-t6.ihotelier.com_80,10.80.72.38:http,pool_ota2-t6.ihotelier.com,10.10.65.112, http
+vs_ota2-t6.ihotelier.com_443,10.80.72.38:https,pool_ota2-t6.ihotelier.com,10.10.65.112, http
+vs_ota-t4.ihotelier.com_80,10.80.72.36:http,pool_ota-t4.ihotelier.com,10.10.64.28, http
+vs_ota-t4.ihotelier.com_443,10.80.72.36:https,pool_ota-t4.ihotelier.com,10.10.64.28, http
+vs_ota-t5.ihotelier.com_80,10.80.72.39:http,pool_ota-t5.ihotelier.com,10.10.64.56 10.10.65.86, http
+vs_ota-t5.ihotelier.com_443,10.80.72.39:https,pool_ota-t5.ihotelier.com,10.10.64.56 10.10.65.86, http
+vs_ota-t6.ihotelier.com_80,10.80.72.37:http,pool_ota-t6.ihotelier.com,10.10.65.112 10.10.65.115 10.10.66.37, http
+vs_ota-t6.ihotelier.com_443,10.80.72.37:https,pool_ota-t6.ihotelier.com,10.10.65.112 10.10.65.115 10.10.66.37, http
+vs_pms-t5.ihotelier.com_80,10.80.72.33:http,pool_pms-t5.ihotelier.com,10.10.64.92 10.80.89.107, http
+vs_pms-t5.ihotelier.com_443,10.80.72.33:https,pool_pms-t5.ihotelier.com,10.10.64.92 10.80.89.107, http
+vs_pmsconnect.ihotelier.com_443,10.80.72.88:https,pool_pmscsecure-t5.ihotelier.com,10.10.64.92, http
+vs_pmscsecure-t5.ihotelier.com_80,10.80.72.20:http,pool_pmscsecure-t5.ihotelier.com,10.10.64.92, http
+vs_pmscsecure-t5.ihotelier.com_443,10.80.72.20:https,pool_pmscsecure-t5.ihotelier.com,10.10.64.92, http
+vs_rate360-dr.travelclick.com,10.80.72.136:http,pool_PQR,10.80.89.121, Monitor_PQR
+vs_rate360-dr.travelclick.com_80,10.80.72.230:http,pool_rate360-dr.travelclick.com,10.80.25.43 10.80.25.44, gateway_icmp
+vs_rate360-dr.travelclick.com_443,10.80.72.230:https,pool_rate360-dr.travelclick.com,10.80.25.43 10.80.25.44, gateway_icmp
+vs_res-t4.ihotelier.com_80,10.80.72.113:http,pool_res-t4.ihotelier.com,10.80.89.67, monitor_http_reservations
+vs_res-t4.ihotelier.com_443,10.80.72.113:https,pool_res-t4.ihotelier.com,10.80.89.67, monitor_http_reservations
+vs_res-t5.ihotelier.com_80,10.80.72.114:http,pool_res-t5.ihotelier.com,10.10.64.198, monitor_http_reservations
+vs_res-t5.ihotelier.com_443,10.80.72.114:https,pool_res-t5.ihotelier.com,10.10.64.198, monitor_http_reservations
+vs_reservations-d1.travelclick.com_443,10.80.72.115:https,pool_reservations-d1.travelclick.com,10.80.89.140, monitor_reservations-d1
+vs_reservations-d1_80,10.80.72.115:http,pool_reservations-d1.travelclick.com,10.80.89.140, monitor_reservations-d1
+vs_reservations-t4.ihotelier.com_80,10.80.72.14:http,pool_reservations-t4.ihotelier.com,10.80.80.21, http_reservations
+vs_reservations-t4.ihotelier.com_443,10.80.72.14:https,pool_reservations-t4.ihotelier.com,10.80.80.21, http_reservations
+vs_reservations-t5.ihotelier.com_80,10.80.72.45:http,pool_reservations-t5.ihotelier.com,10.80.80.35, http
+vs_reservations-t5.ihotelier.com_443,10.80.72.45:https,pool_reservations-t5.ihotelier.com,10.80.80.35, http
+vs_reservations-t6.ihotelier.com_80,10.80.72.15:http,N/A,N/A,N/A
+vs_reservations-t6.ihotelier.com_443,10.80.72.15:https,pool_reservations-t6.ihotelier.com,10.80.80.32, http
+vs_reservations.ihotelier.com_443,10.80.72.96:https,pool_reservations.ihotelier.com,10.80.16.86 10.80.16.87 10.80.16.88, http
+vs_sftpgms.travelclick.net,10.80.72.83:ssh,pool_sftpgms.travelclick.net,10.10.22.66, tcp
+vs_tcgms.net_443,10.80.72.225:https,Pool_tcgms.net,10.80.30.155 10.80.30.156, gateway_icmp
+vs_tcns-disc-t5.travelclick.com_80,10.80.72.167:http,Pool_tcnsdiscl01_02,10.80.89.183 10.80.94.126, Monitor_tcns-disc-t5
+vs_tcns-disc-t5.travelclick.com_443,10.80.72.167:https,Pool_tcnsdiscl01_02,10.80.89.183 10.80.94.126, Monitor_tcns-disc-t5
+vs_tokws-d1.travelclick.net_80,10.80.72.40:http,pool_tokws-d1.travelclick.net,10.80.26.32 10.80.26.33, http
+vs_tokws-d1.travelclick.net_443,10.80.72.40:https,pool_tokws-d1.travelclick.net,10.80.26.32 10.80.26.33, http
+vs_tvtrip.travelclick.com_80,10.80.72.121:http,pool_tvtrip.travelclick.com,10.80.25.188 10.80.25.189 10.80.25.190, http
+vs_tvtrip.travelclick.com_443,10.80.72.121:https,pool_tvtrip.travelclick.com,10.80.25.188 10.80.25.189 10.80.25.190, http
+zdirect.com_http,10.80.72.125:http,gm_web,10.80.30.55 10.80.30.56 10.80.30.57 10.80.30.58 10.80.30.59, GM_web_monitoring
+zdirect.com_http_pre-prod,10.80.72.142:http,gm_web_pre-prod,10.80.82.81 10.80.82.82, GM_web_monitoring
+zdirect.com_https,10.80.72.125:https,gm_web,10.80.30.55 10.80.30.56 10.80.30.57 10.80.30.58 10.80.30.59, GM_web_monitoring
+zdirect.com_https_pre-prod,10.80.72.142:https,gm_web_pre-prod,10.80.82.81 10.80.82.82, GM_web_monitoring
+zdirect.net_http,10.80.72.127:http,gm_web,10.80.30.55 10.80.30.56 10.80.30.57 10.80.30.58 10.80.30.59, GM_web_monitoring
+zdirect.net_http_pre-prod,10.80.72.144:http,gm_web_pre-prod,10.80.82.81 10.80.82.82, GM_web_monitoring
+zdirect.net_https,10.80.72.127:https,gm_web,10.80.30.55 10.80.30.56 10.80.30.57 10.80.30.58 10.80.30.59, GM_web_monitoring
+zdirect.net_https_pre-prod,10.80.72.144:https,gm_web_pre-prod,10.80.82.81 10.80.82.82, GM_web_monitoring

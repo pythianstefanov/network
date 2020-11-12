@@ -1,0 +1,578 @@
+#TMSH-VERSION: 12.1.2
+
+auth user abhalerao {
+    description abhalerao
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell tmsh
+}
+auth user abidkar {
+    description abidkar
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell none
+}
+auth user aborge {
+    description aborge
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user admin {
+    description "Admin User"
+    encrypted-password $6$/tIt6fo.$lOT3ORS59Dy5C2SwPwx4TURwqnvM2vxdSfh3FByai3/C2E3yeq8mtBjv99d4fcXvzaJH2JtotHAPDg.OSRrAh/
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user aghadge {
+    description aghadge
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell tmsh
+}
+auth user akozlovsky {
+    description akozlovsky
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role guest
+        }
+    }
+    shell none
+}
+auth user amason {
+    description amason
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role guest
+        }
+    }
+    shell none
+}
+auth user asasso {
+    description asasso
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user ashapley {
+    description ashapley
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user awyatt {
+    description awyatt
+    encrypted-password !!
+    partition-access {
+        Common {
+            role guest
+        }
+    }
+    shell none
+}
+auth user bfelts {
+    description bfelts
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user cbillups {
+    description cbillups
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell tmsh
+}
+auth user dkotale {
+    description dkotale
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user dstefanov {
+    description dstefanov
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user dwhitney {
+    description dwhitney
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user f5hubblelcdadmin {
+    description f5hubblelcdadmin
+    encrypted-password lYKmdPoYwgvrh3UGnFp1kAZrDDAPV7R6
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell none
+}
+auth user falleyne {
+    description falleyne
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user gadams {
+    description gadams
+    encrypted-password !!
+    partition-access {
+        Common {
+            role guest
+        }
+    }
+    shell none
+}
+auth user gdeshmukh {
+    description gdeshmukh
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user ggore {
+    description ggore
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user gpande {
+    description gpande
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user hionescu {
+    description hionescu
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role guest
+        }
+    }
+    shell none
+}
+auth user iandev {
+    description iandev
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user jboswell {
+    description jboswell
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user jjoseph {
+    description jjoseph
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user jsharp {
+    description jsharp
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user kanthony {
+    description kanthony
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role guest
+        }
+    }
+    shell none
+}
+auth user lmyint {
+    description lmyint
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell none
+}
+auth user mkhairnar {
+    description mkhairnar
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user mpezhuvelil {
+    description mpezhuvelil
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user msmith {
+    description msmith
+    encrypted-password !!
+    partition-access {
+        Common {
+            role guest
+        }
+    }
+    shell none
+}
+auth user npawale {
+    description npawale
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell tmsh
+}
+auth user nsoni {
+    description nsoni
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user padajar {
+    description padajar
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user psadare {
+    description psadare
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user rjoiner {
+    description rjoiner
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role auditor
+        }
+    }
+    shell tmsh
+}
+auth user rmandaokar {
+    description rmandaokar
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user rmantharathodi {
+    description rmantharathodi
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user root {
+    description root
+    encrypted-password $6$gMoe.nEZ$rGBySFWEREMaf91BEy7TZKW39jC0GMbqgAHK1mhLlxpreiAVYFIhezEIzv/VvAQep3LnqDKNTUxpx6.QzvJuK.
+    shell bash
+}
+auth user rpawar {
+    description rpawar
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user rsraghuwanshi {
+    description rsraghuwanshi
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user sadkhan {
+    description sadkhan
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user sdeswal {
+    description sdeswal
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user sdgowda {
+    description sdgowda
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell none
+}
+auth user skumar {
+    description skumar
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user smujumale {
+    description smujumale
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user smulani {
+    description smulani
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user sprabhukhot {
+    description sprabhukhot
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell bash
+}
+auth user sshanbhag {
+    description sshanbhag
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user sshukla {
+    description sshukla
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+auth user subhashkumar {
+    description subhashkumar
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user sunilkumar {
+    description sunilkumar
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role guest
+        }
+    }
+    shell none
+}
+auth user tkhawaja {
+    description tkhawaja
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell none
+}
+auth user ttotev {
+    description ttotev
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role admin
+        }
+    }
+    shell none
+}
+auth user twaghmare {
+    description twaghmare
+    encrypted-password !!
+    partition-access {
+        Common {
+            role operator
+        }
+    }
+    shell none
+}
+auth user vraman {
+    description vraman
+    encrypted-password !!
+    partition-access {
+        all-partitions {
+            role operator
+        }
+    }
+    shell none
+}
+cli preference {
+    alias-path { /Common }
+    display-threshold 0
+    editor nano
+    prompt { host user status current-folder config-sync-status }
+    user rjoiner
+}
+cli preference {
+    alias-path { /Common }
+    display-threshold 0
+    pager disabled
+    prompt { host user status current-folder config-sync-status }
+    user dwhitney
+}
+cli preference {
+    alias-path { /Common }
+    display-threshold 0
+    pager disabled
+    prompt { host user status current-folder config-sync-status }
+    user root
+}

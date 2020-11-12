@@ -1,0 +1,2 @@
+NodeName,NodeIPAddress,PollingEngineID,PollingMethod,SNMPV2Community,NodeManufacturer,City
+TESTNODE,10.80.64.38,1,SNMPV2,notpublic79,F5 Networks, Inc.,LDC

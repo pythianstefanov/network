@@ -1,0 +1,9 @@
+#!/bin/sh
+## Roll out script for October 2018 *.travelclick.com profile swaps on LDC Prod F5.
+##
+./swap-profiles.sh profile_gm.travelclick.com_RestrictCiphers profile_wildcard.travelclick.com_exp_09_06_2020_RestrictCiphers_NoRC4
+./swap-profiles.sh profile_travelclick_wildcard	profile_wildcard.travelclick.com_exp_09_06_2020_RestrictCiphers_NoRC4
+./swap-profiles.sh profile_wildcard_travelclick.com_exp_04_03_2020 profile_wildcard.travelclick.com_exp_09_06_2020_RestrictCiphers_NoRC4
+./swap-profiles.sh profile_wildcard_travelclick.com_exp_04_03_2020_NoCipherRestrictions	profile_wildcard.travelclick.com_exp_09_06_2020
+./swap-profiles.sh profile_wildcard_travelclick.com_exp_04_03_2020_No_Tls1.0 profile_wildcard.travelclick.com_exp_09_06_2020_RestrictCiphers_NoRC4_NoTLS1.0
+./swap-profiles.sh profile_wildcard_travelclick.com_exp_04_03_2020_RestrictedCiphers_NO_RC4_NO_3DES profile_wildcard.travelclick.com_exp_09_06_2020_RestrictCiphers_NoRC4_No3DES

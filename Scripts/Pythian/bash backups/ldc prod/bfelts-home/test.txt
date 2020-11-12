@@ -1,0 +1,2 @@
+ibeapil01-t5.ilcb.tcprod.local:webcache { address 10.80.89.146 session monitor-enabled state up } ibeapil02-t5.ilcb.tcprod.local:webcache { address 10.80.89.147 session monitor-enabled state up }
+

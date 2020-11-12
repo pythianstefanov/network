@@ -1,0 +1,146 @@
+irule name, usage count, associated vips using rule
+Ezyield_Maint1,1,Ezyield_Maint1
+Ezyield_Maint2,2,Ezyield_Maint2 Ezyield_Maint2_HTTPS
+Ezyield_Maint3,2,Ezyield_Maint3 Ezyield_Maint3_HTTPS
+Irule_dotnettodotcom_80_IMS,3,IMS-VIP1 IMS-VIP1_443 IMS-VIP2
+Irule_dotnettodotcom_80_PROD,0
+Irule_dotnettodotcom_80_QA,0
+Irule_dotnettodotcom_443_IMS,0
+Irule_dotnettodotcom_443_PROD,2,vs_emc_80 vs_insite_80
+Irule_dotnettodotcom_443_QA,0
+New_IMS,0
+OWA_exhange,1,vs_exch_srv_80
+SSLrenegotiation,0
+XFORWARD_FOR,0
+_NEW-maint-page-all,1,vs_admin_80
+_sys_APM_Citrix,0
+_sys_APM_ExchangeSupport_helper,0
+_sys_APM_ExchangeSupport_main,0
+_sys_APM_activesync,0
+_sys_auth_krbdelegate,0
+_sys_auth_ssl_cc_ldap,0
+_sys_auth_ssl_crldp,0
+_sys_auth_ssl_ocsp,0
+_sys_https_redirect,0
+dotnetdotcomv1,0
+dotnettodotcom,0
+http_https_redirect,1,vs_api-ihos-t6.ihotelier.com_80
+iRule_redirect_tomcat_securework,2,Booking-t6_443 Bookings-t5_443
+iRule_redirect_tomcat_secureworks,0
+irule_HTTP_X-FRAME-OPTIONS_SAMEORIGIN,2,vs__api-ihos-t5.ihotelier.com_80 vs__api-ihos-t5.ihotelier.com_443
+irule_TLS-regnotiation_Bug_Tracker_36935,28,Admin1-t2 Admin1-t3-443 Admin1-t5 Admin-temp-t2_443 Admin-temp-t3_443 Admin_t6_443 Booking-temp-t2_443 Booking-temp-t3_443 Callcenter-temp-t1_443 Callcenter-temp-t2_443 Callcenter-temp-t3_443 Imanager-temp-t1_443 Imanager-temp-t2_443 Imanager-temp-t3_443 Reservations-t6_443 Reservations-temp-t2_443 Reservations-temp-t3_443 Vs_ota-t3_ihotelier.com_443 imanager-t6_443 mobile_t2_443 mobile_t3_443 mobile_t5_443 vs__api-ihos-t5.ihotelier.com_443 vs_api-ihos-t6.ihotelier.com_443 vs_insite-t2_443 vs_ota2_t6.ihotelier.com_443 vs_ota-t4_ihotelier.com_443 vs_ota_xapi_t5_443
+irule_TLS-regnotiation_Bug_Tracker_36935_020211,13,Admin_T4_443 Booking_T4_443 Booking_T5_443 Bookings-T4_Console-T4_443 Bookings-T6_Console-T6_443 Bookings-t5_443 Console-t5_443 Imanager_T4_443 Reservations_T4_80 vs_Databridge-T4_443 vs_Databridge-T5_443 vs_new_ota_https vs_pmsconnect_443
+irule_TLS-renegotiation_Bug_Tracker_36935,23,Admin_T5_443 vs_CallCenter_New_T5 vs_admin-v1_443 vs_admin_443 vs_api-cd_443 vs_api-ihos_443 vs_booking_443 vs_bookings_443 vs_callcenter_443 vs_console_443 vs_emc_443 vs_exch_srv_443 vs_imanager2.ihotelier.com_443 vs_imanager_443 vs_insite_443 vs_mobile_443 vs_ota_api_443 vs_ota_gch_api_443 vs_ota_xapi_443 vs_pms_connect_443 vs_resv_test_443 vs_stride_443 vs_urchin_443
+irule_actionoutcome_block,1,Admin_t6_443
+irule_api-cd_https_redirect_062410,2,vs_api-cd_80 vs_api-ihos_80
+irule_block_jmx_admin_invoker,4,vs__api-ihos-t5.ihotelier.com_80 vs__api-ihos-t5.ihotelier.com_443 vs_ns2udp_temp_53 vs_ota2_t6.ihotelier.com_443
+irule_booking_t4_console_t4,1,Bookings-T4_Console-T4_443
+irule_booking_t5_redirect_secureworks,0
+irule_booking_t6_redirect_secureworks,0
+irule_bookings_perf_redirect_securework,0
+irule_bookings_redirect_securework,0
+irule_console_perf_redirect_securework,0
+irule_console_redirect_securework,0
+irule_console_redirect_shortURL,0
+irule_console_redirect_short_URL_Callcenter15-t5,1,vs_CallCenter_New_T5
+irule_console_redirect_short_URL_T5,1,Console-t5_443
+irule_console_redirect_short_URL_T6,1,Bookings-T6_Console-T6_443
+irule_console_redirect_short_URL_perf,0
+irule_console_redirect_short_URL_prod,1,vs_console_443
+irule_console_redirect_switch_short_URL,0
+irule_console_t5_redirect_securework,0
+irule_console_t6_redirect_securework,0
+irule_databridge_concurrent_connection_limit_25,0
+irule_detect_TLS1.0_loglocal,0
+irule_istay_redirect-T4,1,Reservations_T4_80
+irule_mobile_booking_T1_443_071210,0
+irule_mobile_booking_T2_443_290910,1,Booking-temp-t2_443
+irule_mobile_booking_T3_443_071210,1,Booking-temp-t3_443
+irule_mobile_booking_T4_443_07JAN2014,1,Booking_T4_443
+irule_mobile_booking_T4_443_071210,0
+irule_mobile_booking_T5_443_07JAN2014,0
+irule_mobile_booking_T5_443_28JAN14,1,Bookings-T4_Console-T4_443
+irule_mobile_booking_T5_443_061412,1,Bookings-t5_443
+irule_mobile_booking_T5_443_071210,0
+irule_mobile_booking_T6_443_07JAN2014,1,Booking-t6_443
+irule_mobile_booking_T6_443_28JAN14,0
+irule_mobile_booking_T6_443_041811,0
+irule_mobile_booking_prod_443,1,vs_bookings_443
+irule_mobile_reservations_80_062910,0
+irule_mobile_reservations_T1_122810,1,Reservations-t6_443
+irule_mobile_reservations_T2_071010,1,Reservations-temp-t2_443
+irule_mobile_reservations_T3_80_071210,1,Reservations-temp-t3_80
+irule_mobile_reservations_T3_443_071210,1,Reservations-temp-t3_443
+irule_mobile_reservations_T4_80_071210,1,Reservations_T4_80
+irule_mobile_reservations_T4_443_071210,1,Reservations_T4_80
+irule_mobile_reservations_T5_80_071210,1,Reservations_T5_80
+irule_mobile_reservations_T5_443_071210,2,Reservations_T5_443 mobile_t5_443
+irule_mobile_reservations_T6_80_050112,0
+irule_mobile_reservations_T6_443_050112,1,mobile-t6_80
+irule_mobile_reservations_T6_041811,0
+irule_onescreen_redirect,1,Reservations-t6_443
+irule_onescreen_redirect-T4,1,Reservations_T4_80
+irule_ota-services_redirect,0
+irule_ota_api_T5_80_redirect,1,vs__api-ihos-t5.ihotelier.com_80
+irule_ota_https_redirect,8,vs__api-ihos-t5.ihotelier.com_80 vs_new_ota_http vs_ota-t3_ihotelier.com_80 vs_ota-t4_ihotelier.com_80 vs_ota_api_80 vs_ota_ghc_api_80 vs_ota_t3_80 vs_ota_xapi_t5_80
+irule_ota_webservices_and_channel-direct,0
+irule_redirect_bookings-t5,0
+irule_redirect_istay,1,Reservations-t6_443
+irule_reservations_concurrent_connection_limit_25,0
+irule_vmview,0
+irule_webserices_and_channel-direct,0
+mobile_booking_new_082812,0
+mobile_booking_new_061412,0
+mobile_booking_new_062410,0
+mobile_bookings_032313_safafi603,0
+mobile_redirect_with_safari_603,0
+mobile_reservations_new_062410,0
+redirect_generic,0
+rule_Etrak_MTC_Scheduled,0
+rule_Etrak_MTC_UnScheduled,0
+rule_Ht360_MTC_UnScheduled,0
+rule_IMS_MTC_Scheduled,1,gtm_test_80
+rule_IMS_MTC_UnScheduled,0
+rule_TEST_admin-v1_scheduled,0
+rule_admin-v1_MTC_Scheduled,0
+rule_admin-v1_MTC_UnScheduled,0
+rule_admin_MTC_Scheduled,0
+rule_admin_MTC_UnScheduled,0
+rule_all_prod_urls_Scheduled,0
+rule_block_bookings_urls,2,Booking_T4_443 vs_bookings_443
+rule_block_coldfusion_console,35,Admin_T5_443 IMS-VIP1 IMS-VIP1_443 IMS-VIP2 vs_CallCenter_New_T5 vs_CallCenter_New_T5_80 vs_IMS-TEST_80 vs_IMS-Trump_80 vs_IMS-VIP4_80 vs_IMS-VIP5_80 vs_IMS-VIP8_80 vs_admin_443 vs_aramark_80 vs_booking_443 vs_callcenter15-perf.ihotelier.com_80 vs_callcenter15-perf.ihotelier.com_443 vs_callcenter15-t6.ihotelier.com_80 vs_callcenter15-t6.ihotelier.com_443 vs_callcenter_80 vs_callcenter_443 vs_cftest1_80 vs_demo_ims_t1_80 vs_demo_ims_t1_443 vs_emc_80 vs_emc_443 vs_etrak_80 vs_imanager_443 vs_rvuiqa_80 vs_test_ims-5 vs_trumpmarina.com_443 vs_trumpplaza.com_80 vs_trumpplaza.com_443 vs_trumptaj.com_80 vs_trumptaj.com_443 vs_web2_bluesqstudios.com_80
+rule_block_jmx_web_console,37,Vs_htk360_80 Vs_pci_80 Vs_pci_443 vs_CallCenter_New_T5 vs_IMS-Trump_80_new vs_admin-v1_80 vs_admin-v1_443 vs_admin_80 vs_admin_443 vs_api-cd_80 vs_api-cd_443 vs_api-ihos_80 vs_api-ihos_443 vs_booking_443 vs_callcenter_443 vs_etrak_80 vs_exch_srv_443 vs_gms_80 vs_gms_443 vs_gmsapps-audit_80 vs_gmsapps-audit_443 vs_gmsapps_443 vs_imanager_443 vs_insite_443 vs_new_ota_http vs_new_ota_https vs_ota_api_80 vs_ota_api_443 vs_ota_gch_api_443 vs_ota_ghc_api_80 vs_ota_t3_80 vs_ota_xapi_443 vs_pms_connect_443 vs_pmsconnect_443 vs_resv_test_443 vs_stride_443 vs_urchin_443
+rule_block_jmx_web_console1,8,IMS-VIP1 IMS-VIP1_443 IMS-VIP2 gtm_test_80 vs_IMS-TEST_80 vs_IMS-Trump_80 vs_IMS-Trump_80_new vs_IMS-VIP4_80
+rule_block_jmx_web_console_QA,53,Admin1-T4 Admin1-t2 Admin1-t3-443 Admin1-t5 Admin-temp-t2_80 Admin-temp-t2_443 Admin-temp-t3_80 Admin-temp-t3_443 Admin_T4_443 Admin_T5_443 Admin_t6_443 Booking-t6_443 Booking-temp-t2_443 Booking-temp-t3_443 Booking_T4_443 Booking_T5_443 Callcenter-temp-t1_443 Callcenter-temp-t2_443 Callcenter-temp-t3_443 Expedia-T5 Imanager-temp-t1_443 Imanager-temp-t2_443 Imanager-temp-t3_443 Imanager_T4_443 Imanager_T5_443 Reservations-t6_443 Reservations-temp-t2_443 Reservations-temp-t3_443 Reservations_T4_80 Vs_ota-t3_ihotelier.com_443 Vs_pms-t5_80 Vs_pms-t5_443 imanager-t6_443 mobile_t3_443 mobile_t5_443 vs_Databridge-T4_443 vs_Databridge-T5_443 vs__api-ihos-t5.ihotelier.com_80 vs__api-ihos-t5.ihotelier.com_443 vs_api-ihos-t6.ihotelier.com_443 vs_insite-t1_443 vs_insite-t2_443 vs_insite_d2_443 vs_is3_t4_80 vs_mobile-T1_443 vs_mobile_T4_443 vs_ota2_t6.ihotelier.com_443 vs_ota-t4_ihotelier.com_80 vs_ota-t4_ihotelier.com_443 vs_ota_t3_80 vs_ota_xapi_t5_80 vs_ota_xapi_t5_443 vs_rvuiqa_80
+rule_block_keyword_status,14,vs_api-cd_80 vs_api-cd_443 vs_api-ihos_80 vs_api-ihos_443 vs_new_ota_http vs_new_ota_https vs_ota_api_80 vs_ota_api_443 vs_ota_gch_api_443 vs_ota_ghc_api_80 vs_ota_t3_80 vs_ota_xapi_443 vs_pms_connect_443 vs_pmsconnect_443
+rule_block_keyword_status_block,31,Booking-t6_443 Booking-temp-t2_443 Booking-temp-t3_443 Booking_T4_443 Booking_T5_443 Callcenter-temp-t1_443 Callcenter-temp-t2_443 Callcenter-temp-t3_443 Imanager_T4_443 Vs_ota-t3_ihotelier.com_443 Vs_pms-t5_80 Vs_pms-t5_443 mobile-t6_80 mobile_t2_443 mobile_t3_80 mobile_t3_443 mobile_t5_80 mobile_t5_443 vs__api-ihos-t5.ihotelier.com_80 vs__api-ihos-t5.ihotelier.com_443 vs_api-ihos-t6.ihotelier.com_443 vs_etrak_80 vs_gms_80 vs_gms_443 vs_ota2_t6.ihotelier.com_443 vs_ota-t3_ihotelier.com_80 vs_ota-t4_ihotelier.com_80 vs_ota-t4_ihotelier.com_443 vs_ota_t3_80 vs_ota_xapi_t5_80 vs_ota_xapi_t5_443
+rule_booking_MTC_Scheduled,0
+rule_booking_MTC_UnScheduled,0
+rule_callcenter_MTC_Scheduled,1,Vs_pci_80
+rule_callcenter_MTC_UnScheduled,0
+rule_console_block,3,Console-t5_443 vs_cftest1_80 vs_console_443
+rule_emc-insite-forums_MTC_Scheduled,0
+rule_emc-insite-forums_MTC_UnScheduled,1,vs_insite_443
+rule_emc_insite_mtc_scheduled,0
+rule_emc_new_Unscheduled_MTC,3,vs_emc_80 vs_emc_443 vs_insite_80
+rule_iManager_MTC_Scheduled,0
+rule_iManager_MTC_UnScheduled,0
+rule_ims_scheduled71109,0
+rule_maintenance_generic,2,vs_admin-v1_443 vs_callcenter_443
+rule_mobile_booking_MTC_Scheduled,1,Vs_pci_443
+rule_mobile_booking_MTC_UnScheduled,0
+rule_ota_https_redirect_bookings,0
+rule_reservations-perf_scheduled,0
+rule_reservations_MTC_Scheduled,0
+rule_reservations_MTC_UnScheduled,0
+rule_resv_group_links,0
+rule_resv_redirect_clean_long_to_lower,0
+rule_resv_redirect_uri_clean_long,0
+rule_rvui_MTC_Scheduled,0
+rule_rvui_MTC_UnScheduled,0
+rule_secure-cookie,7,Bookings-T6_Console-T6_443 Bookings-t5_443 Reservations-t6_443 vs_bookings_443 vs_console_443 vs_imanager_443 vs_protel-test_443
+rule_snat_local_hosts_ims,1,vs_test_ims-5
+rule_test11,0
+rule_test_block_jmx,0
+rule_universal_blocking,14,Bookings-t5_443 Reservations_T4_80 Vs_pms-t5_443 vs_CallCenter_New_T5 vs_CallCenter_New_T5_80 vs__api-ihos-t5.ihotelier.com_80 vs__api-ihos-t5.ihotelier.com_443 vs_callcenter15-perf.ihotelier.com_80 vs_callcenter15-perf.ihotelier.com_443 vs_imanager2.ihotelier.com_443 vs_mobile_443 vs_ns2udp_temp_53 vs_ota2_t6.ihotelier.com_443 vs_protel-test_8080
+rule_urchin_https_redirect,2,vs_urchin_80 vs_urchin_9999

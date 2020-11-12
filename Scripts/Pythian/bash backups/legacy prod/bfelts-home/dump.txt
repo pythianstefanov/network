@@ -1,0 +1,5383 @@
+ltm virtual Admin1-T4 {
+    destination 10.10.12.44:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Admin1-T4
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snatpool Admin1_T4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin1-t2 {
+    destination 10.10.12.42:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+}
+ltm virtual Admin1-t2-443 {
+    destination 10.10.12.42:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Admin1-t2
+    profiles {
+        http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool admin1-t2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin1-t3 {
+    destination 10.10.12.43:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin1-t3-443 {
+    destination 10.10.12.43:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Admin1-t3
+    profiles {
+        http { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool admin1-t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin1-t5 {
+    destination 10.10.12.46:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+}
+ltm virtual Admin1-t5-443 {
+    destination 10.10.12.46:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Admin1-t5
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp {
+            context serverside
+        }
+        tcp-wan-optimized {
+            context clientside
+        }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool admin1-t5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin-temp-t2_80 {
+    destination 10.10.12.30:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Admin-temp-t2
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin-temp-t2_443 {
+    destination 10.10.12.30:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Admin-temp-t2
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool Admin_temp_t2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin-temp-t3_80 {
+    destination 10.10.12.35:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Admin-temp-t3
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin-temp-t3_443 {
+    destination 10.10.12.35:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Admin-temp-t3
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool Admin_temp_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin_T4_80 {
+    destination 10.10.12.10:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin_T4_443 {
+    destination 10.10.12.10:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Admin-T4
+    profiles {
+        iHotelier_Wildcard {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool Admin_T4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin_T5_80 {
+    destination 10.10.12.15:http
+    disabled
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin_T5_443 {
+    destination 10.10.12.15:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Admin-T5
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        rule_block_coldfusion_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool Admin_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin_t6_80 {
+    destination 10.10.12.168:http
+    disabled
+    fallback-persistence source_addr
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool Admin_t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Admin_t6_443 {
+    destination 10.10.12.168:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Admin-t6
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        irule_actionoutcome_block
+    }
+    snatpool Admin_t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking-t6_80 {
+    destination 10.10.12.170:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_Booking-t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking-t6_443 {
+    destination 10.10.12.170:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Booking-t6
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        rule_block_keyword_status_block
+        irule_mobile_booking_T6_443_07JAN2014
+        iRule_redirect_tomcat_securework
+    }
+    snatpool snat_Booking-t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking-temp-t2_80 {
+    destination 10.10.12.31:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking-temp-t2_443 {
+    destination 10.10.12.31:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Booking-temp-t2
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_mobile_booking_T2_443_290910
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Booking_temp_t2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking-temp-t3_80 {
+    destination 10.10.12.36:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking-temp-t3_443 {
+    destination 10.10.12.36:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Booking-temp-t3
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_mobile_booking_T3_443_071210
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Booking_temp_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking_T4_80 {
+    destination 10.10.12.11:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking_T4_443 {
+    destination 10.10.12.11:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Booking-T4
+    profiles {
+        iHotelier_Wildcard {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_bookings_urls
+        rule_block_jmx_web_console_QA
+        irule_mobile_booking_T4_443_07JAN2014
+        rule_block_keyword_status_block
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool Booking_T4
+}
+ltm virtual Booking_T5_80 {
+    destination 10.10.12.16:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Booking_T5_443 {
+    destination 10.10.12.16:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Booking-T5
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_wildcard.ihotelier.com_RestrictCiphers_WithoutRC4_NewSSLCert {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        rule_block_keyword_status_block
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool Booking_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Bookings-T4_Console-T4_80 {
+    destination 10.10.12.201:http
+    disabled
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Bookings-T4_Console-T4_443 {
+    destination 10.10.12.201:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Bookings-T4_Console-T4
+    profiles {
+        XForward-FOR_http { }
+        profile_wildcard.ihotelier.com_New {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        irule_booking_t4_console_t4
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+        irule_mobile_booking_T5_443_28JAN14
+    }
+    snatpool Booking_T4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Bookings-T6_Console-T6_80 {
+    destination 10.10.12.160:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Bookings-T6_Console-T6_443 {
+    destination 10.10.12.160:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Bookings-T6_Console-T6
+    profiles {
+        oneconnect { }
+        profile_http_cookie_encrypt { }
+        profile_wildcard.ihotelier.com_RestrictCiphers_WithoutRC4_NewSSLCert {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        irule_console_redirect_short_URL_T6
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+        rule_secure-cookie
+    }
+    snatpool snat_Bookings-t6_Console-t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Bookings-t5_80 {
+    destination 10.10.12.202:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Bookings-t5_443 {
+    destination 10.10.12.202:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Bookings-t5
+    profiles {
+        oneconnect { }
+        profile_http_cookie_encrypt { }
+        profile_wildcard.ihotelier.com_RestrictCiphers_WithoutRC4_NewSSLCert {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_universal_blocking
+        irule_mobile_booking_T5_443_061412
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+        iRule_redirect_tomcat_securework
+        rule_secure-cookie
+        iRule_bookings-t5_host_header
+    }
+    snatpool snat_Bookings-t5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Callcenter-temp-t1_80 {
+    destination 10.10.12.27:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Callcenter-temp-t1_443 {
+    destination 10.10.12.27:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Callcenter-temp-t1
+    profiles {
+        XForward-FOR_http { }
+        iHotelier_Wildcard {
+            context clientside
+        }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Callcenter_temp_t1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Callcenter-temp-t2_80 {
+    destination 10.10.12.32:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Callcenter-temp-t2_443 {
+    destination 10.10.12.32:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Callcenter-temp-t2
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Callcenter_temp_t2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Callcenter-temp-t3_80 {
+    destination 10.10.12.37:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Callcenter-temp-t3_443 {
+    destination 10.10.12.37:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Callcenter-temp-t3
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Callcenter_temp_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Callcenter_T4_80 {
+    destination 10.10.12.12:http
+    fallback-persistence source_addr
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        http { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Callcenter_T5_80 {
+    destination 10.10.12.17:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Console-t5_80 {
+    destination 10.10.12.187:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Console-t5_443 {
+    destination 10.10.12.187:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Console-t5
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_console_block
+        irule_console_redirect_short_URL_T5
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool snat_Console-t5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Expedia-T5 {
+    destination 10.10.12.45:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Expedia-T5
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp-lan-optimized {
+            context serverside
+        }
+        tcp-wan-optimized {
+            context clientside
+        }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snatpool Expedia_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Ezyield_Maint1 {
+    destination 10.10.12.191:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Ezyield_Maint1_HTTPS {
+    destination 10.10.12.191:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool maintpage_pool
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Ezyield_Maint2 {
+    destination 10.10.12.192:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Ezyield_Maint2_HTTPS {
+    destination 10.10.12.192:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool maintpage_pool
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+        travelclick.com_allnetsites {
+            context clientside
+        }
+    }
+    rules {
+        Ezyield_Maint2
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Ezyield_Maint3 {
+    destination 10.10.12.193:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Ezyield_Maint3_HTTPS {
+    destination 10.10.12.193:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+        travelclick.com_allnetsites {
+            context clientside
+        }
+    }
+    rules {
+        Ezyield_Maint3
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual IMS-VIP1 {
+    destination 10.10.30.13:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool IMS
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        Irule_dotnettodotcom_80_IMS
+        rule_block_jmx_web_console1
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual IMS-VIP1_443 {
+    destination 10.10.30.13:https
+    fallback-persistence dest_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool IMS
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        Irule_dotnettodotcom_80_IMS
+        rule_block_jmx_web_console1
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual IMS-VIP2 {
+    destination 10.10.30.14:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool IMS-2
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        Irule_dotnettodotcom_80_IMS
+        rule_block_jmx_web_console1
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual Imanager-temp-t1_443 {
+    destination 10.10.12.28:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool imanager-temp-t1
+    profiles {
+        XForward-FOR_http { }
+        iHotelier_Wildcard {
+            context clientside
+        }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool imanager_temp_t1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Imanager-temp-t2_443 {
+    destination 10.10.12.33:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool imanager-temp-t2
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool imanager_temp_t2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Imanager-temp-t3_443 {
+    destination 10.10.12.38:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool imanager-temp-t3
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool imanager_temp_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Imanager_T4_80 {
+    destination 10.10.12.13:http
+    disabled
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Imanager_T4_443 {
+    destination 10.10.12.13:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Imanager-T4
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ihotelier_wildcard_qa {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool Imanager_T4
+}
+ltm virtual Imanager_T5_80 {
+    destination 10.10.12.18:http
+    disabled
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_keyword_status_block
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Imanager_T5_443 {
+    destination 10.10.12.18:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Imanager-T5
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snatpool Imanager_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations-t6_80 {
+    destination 10.10.12.171:http
+    disabled
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_Reservations-t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations-t6_443 {
+    destination 10.10.12.171:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Reservations-t6
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_redirect_istay
+        irule_onescreen_redirect
+        rule_block_jmx_web_console_QA
+        irule_mobile_reservations_T1_122810
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_secure-cookie
+    }
+    snatpool snat_Reservations-t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations-temp-t2-80 {
+    destination 10.10.12.34:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations-temp-t2_443 {
+    destination 10.10.12.34:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Reservations-temp-t2
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_mobile_reservations_T2_071010
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool Reservations_temp_t2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations-temp-t3_80 {
+    destination 10.10.12.39:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Reservations-temp-t3
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        irule_mobile_reservations_T3_80_071210
+    }
+    snatpool Reservations_temp_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations-temp-t3_443 {
+    destination 10.10.12.39:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Reservations-temp-t3
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_mobile_reservations_T3_443_071210
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool Reservations_temp_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations_T4_80 {
+    destination 10.10.12.14:http
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Reservations-T4
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_universal_blocking
+        irule_istay_redirect-T4
+        irule_onescreen_redirect-T4
+        rule_block_jmx_web_console_QA
+        irule_mobile_reservations_T4_80_071210
+    }
+    snatpool Reservations_T4
+}
+ltm virtual Reservations_T4_443 {
+    destination 10.10.12.14:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Reservations-T4
+    profiles {
+        XForward-FOR_http { }
+        iHotelier_Wildcard {
+            context clientside
+        }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_universal_blocking
+        irule_istay_redirect-T4
+        irule_onescreen_redirect-T4
+        rule_block_jmx_web_console_QA
+        irule_mobile_reservations_T4_443_071210
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool Reservations_T4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations_T5_80 {
+    destination 10.10.12.19:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Reservations-T5
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        irule_mobile_reservations_T5_80_071210
+    }
+    snatpool Reservations_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Reservations_T5_443 {
+    destination 10.10.12.19:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Reservations-T5
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        irule_mobile_reservations_T5_443_071210
+    }
+    snatpool Reservations_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Vs_gms_10022 {
+    destination 10.10.12.166:10022
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Pool_IDT_10022
+    profiles {
+        tcp { }
+    }
+    snatpool snat_sftp_IDT
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Vs_htk360_80 {
+    destination 10.10.12.79:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Pool_htk360_9740
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+    }
+    snatpool htk360_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Vs_ota-t3_ihotelier.com_443 {
+    destination 10.10.12.82:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Pool_ota-t3_ihotelier.com_80
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Snat_ota-t3_ihotelier.com_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Vs_pci_80 {
+    destination 10.10.12.73:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_callcenter_MTC_Scheduled
+        rule_block_jmx_web_console
+    }
+    snatpool Admin_temp_t1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Vs_pci_443 {
+    destination 10.10.12.73:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_mobile_booking_MTC_Scheduled
+        rule_block_jmx_web_console
+    }
+    snatpool Snat_pmc_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Vs_pms-t5_80 {
+    destination 10.10.12.75:http
+    fallback-persistence source_addr
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Pool_pms-t5_80
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_keyword_status_block
+        rule_block_jmx_web_console_QA
+    }
+    snatpool Snat_pms-t5_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Vs_pms-t5_443 {
+    destination 10.10.12.75:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Pool_pms-t5_80
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        rule_block_keyword_status_block
+        rule_universal_blocking
+    }
+    snatpool Snat_pms-t5_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual Vs_sftp_gms {
+    destination 10.10.12.166:ssh
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        source_addr {
+            default yes
+        }
+    }
+    pool Pool_sftp_IDT
+    profiles {
+        tcp { }
+    }
+    snatpool snat_sftp_IDT
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual expedia-T5-https {
+    destination 10.10.12.45:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool Expedia-T5
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp-lan-optimized {
+            context serverside
+        }
+        tcp-wan-optimized {
+            context clientside
+        }
+    }
+    snatpool Expedia_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual gtm_test_80 {
+    destination 10.10.12.150:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_IMS_MTC_Scheduled
+        rule_block_jmx_web_console1
+    }
+    snatpool IMS_SNAT_POOL
+}
+ltm virtual imanager-t6_80 {
+    destination 10.10.12.169:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual imanager-t6_443 {
+    destination 10.10.12.169:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool imanager-t6
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool snat_imanager-t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual imanager-temp-t1_80 {
+    destination 10.10.12.28:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool imanager-temp-t1
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual imanager-temp-t2_80 {
+    destination 10.10.12.33:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool imanager-temp-t2
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual imanager-temp-t3_80 {
+    destination 10.10.12.38:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool imanager-temp-t3
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual mobile-t6_80 {
+    destination 10.10.12.178:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+}
+ltm virtual mobile-t6_443 {
+    destination 10.10.12.178:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_m-t6.ihotelier.com
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        irule_mobile_reservations_T6_443_050112
+    }
+    snatpool snat_mobile-t6
+}
+ltm virtual mobile_t2_80 {
+    destination 10.10.12.93:http
+    fallback-persistence source_addr
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_keyword_status_block
+    }
+    snatpool Snat_mobile_T1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual mobile_t2_443 {
+    destination 10.10.12.93:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Booking-temp-t2
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ihotelier_wildcard_qa {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Snat_mobile_T1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual mobile_t3_80 {
+    destination 10.10.12.90:http
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_keyword_status_block
+    }
+    snatpool snat_mobile_ldc
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual mobile_t3_443 {
+    destination 10.10.12.90:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Booking-temp-t3
+    profiles {
+        iHotelier_Wildcard {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Reservations_temp_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual mobile_t5_80 {
+    destination 10.10.12.91:http
+    fallback-persistence source_addr
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_keyword_status_block
+    }
+    snatpool Booking_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual mobile_t5_443 {
+    destination 10.10.12.91:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_mobile_t5
+    profiles {
+        iHotelier_Wildcard {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+        irule_mobile_reservations_T5_443_071210
+        iRule_m-t5_host_header
+    }
+    snatpool Booking_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_CallCenter_New_T5 {
+    destination 10.10.12.207:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool callcenter-new-t5
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+        rule_block_jmx_web_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        irule_console_redirect_short_URL_Callcenter15-t5
+        rule_universal_blocking
+    }
+    snatpool Callcenter_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_CallCenter_New_T5_80 {
+    destination 10.10.12.207:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool callcenter-new-t5
+    profiles {
+        XForward-FOR_http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+        rule_universal_blocking
+    }
+    snatpool Callcenter_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_Databridge-T4_80 {
+    destination 10.10.12.80:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Databridge-T4
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    snatpool snat_Databridge-T4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_Databridge-T4_443 {
+    destination 10.10.12.80:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Databridge-T4
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool snat_Databridge-T4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_Databridge-T5_80 {
+    destination 10.10.12.81:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Databridge-T5
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    snatpool snat_Databridge-T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_Databridge-T5_443 {
+    destination 10.10.12.81:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Databridge-T5
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool snat_Databridge-T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_IMS-TEST_80 {
+    destination 10.10.31.249:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool IMS-Test
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console1
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_IMS-Trump_80 {
+    destination 10.10.30.18:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console1
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_IMS-Trump_80_new {
+    destination 10.10.30.19:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        rule_block_jmx_web_console1
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_IMS-VIP4_80 {
+    destination 10.10.30.16:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool IMS-4
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console1
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_IMS-VIP5_80 {
+    destination 10.10.30.17:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool IMS-5
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_IMS-VIP8_80 {
+    destination 10.10.31.140:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool IMS-8
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs__api-ihos-t5.ihotelier.com_80 {
+    destination 10.10.12.78:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota_api_t5_8080
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        irule_ota_api_T5_80_redirect
+        irule_ota_https_redirect
+        rule_block_keyword_status_block
+        rule_block_jmx_web_console_QA
+    }
+    snatpool ota_api_t5_80
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs__api-ihos-t5.ihotelier.com_443 {
+    destination 10.10.12.78:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota_api_t5_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_wildcard.ihotelier.com_New {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        rule_block_keyword_status_block
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool ota_api_t5_80
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_admin-v1_80 {
+    destination 10.10.12.68:http
+    disabled
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_admin-v1_443 {
+    destination 10.10.12.68:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_admin-v1_8080
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_maintenance_generic
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_jmx_web_console
+    }
+    snatpool snat_admin-v1_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_admin_80 {
+    destination 10.10.12.64:http
+    disabled
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        _NEW-maint-page-all
+        rule_block_jmx_web_console
+    }
+    snatpool snat_admin_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_admin_443 {
+    destination 10.10.12.64:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_admin_8080
+    profiles {
+        profile_http_cookie_encrypt { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_coldfusion_console
+    }
+    snatpool snat_admin_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_api-cd_80 {
+    destination 10.10.12.69:http
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_api-cd_8080
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_api-cd_https_redirect_062410
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+    }
+    snatpool snat_api-cd_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_api-cd_443 {
+    destination 10.10.12.69:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_api-cd_8080
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_keyword_status
+    }
+    snatpool snat_api-cd_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_api-ihos-t6.ihotelier.com_80 {
+    destination 10.10.12.173:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        http_https_redirect
+    }
+    snatpool snat_ota_t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_api-ihos-t6.ihotelier.com_443 {
+    destination 10.10.12.173:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota_t6_8080
+    profiles {
+        profile_http_x-forward-for { }
+        profile_wildcard.ihotelier.com_New {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_jmx_web_console_QA
+        rule_block_keyword_status_block
+    }
+    snatpool snat_ota_t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_api-ihos_80 {
+    destination 10.10.12.159:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_api-ihos_8080
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_api-cd_https_redirect_062410
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+    }
+    snatpool snat_api-ihos-internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_api-ihos_443 {
+    destination 10.10.12.159:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_api-ihos_8080
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_keyword_status
+    }
+    snatpool snat_api-ihos-internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_aramark_80 {
+    destination 10.10.30.57:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool IMS-Aramark
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_booking_80 {
+    destination 10.10.12.63:http
+    disabled
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    snatpool snat_booking_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_booking_443 {
+    destination 10.10.12.63:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_booking_8080
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_jmx_web_console
+    }
+    snatpool snat_booking_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_bookings_80 {
+    destination 10.10.12.198:http
+    disabled
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        http { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_bookings_443 {
+    destination 10.10.12.198:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_bookings_8080
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_cookie_encrypt { }
+        tcp { }
+    }
+    rules {
+        rule_secure-cookie
+        irule_mobile_booking_prod_443
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_bookings_urls
+    }
+    snatpool snat_bookings
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_callcenter15-perf.ihotelier.com_80 {
+    destination 10.10.12.209:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        source_addr {
+            default yes
+        }
+    }
+    pool pool_callcenter15-perf.ihotelier.com
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+        rule_universal_blocking
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_callcenter15-perf.ihotelier.com_443 {
+    destination 10.10.12.209:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        source_addr {
+            default yes
+        }
+    }
+    pool pool_callcenter15-perf.ihotelier.com
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+        rule_universal_blocking
+    }
+    snatpool Callcenter_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_callcenter15-t6.ihotelier.com_80 {
+    destination 10.10.12.208:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_callcenter15-t6.ihotelier.com
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool Callcenter_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_callcenter15-t6.ihotelier.com_443 {
+    destination 10.10.12.208:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_callcenter15-t6.ihotelier.com
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool Callcenter_T5
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_callcenter_80 {
+    destination 10.10.12.65:http
+    disabled
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool snat_callcenter_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_callcenter_443 {
+    destination 10.10.12.65:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_callcenter_80
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        profile_http_cookie_encrypt { }
+        tcp { }
+    }
+    rules {
+        rule_maintenance_generic
+        rule_block_coldfusion_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_jmx_web_console
+    }
+    snatpool snat_callcenter_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_cftest1_80 {
+    destination 10.10.12.211:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_cftest1
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+}
+ltm virtual vs_cftest1_443 {
+    destination 10.10.12.211:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_cftest1
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+}
+ltm virtual vs_cftest2_80 {
+    destination 10.10.12.212:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_cftest2
+    profiles {
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+}
+ltm virtual vs_cftest2_443 {
+    destination 10.10.12.212:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_cftest2
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        XForward-FOR_http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+}
+ltm virtual vs_console_80 {
+    destination 10.10.12.199:http
+    disabled
+    http-class {
+        httpclass
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_console_block
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_console_443 {
+    destination 10.10.12.199:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_console_8080
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_cookie_encrypt { }
+        tcp { }
+    }
+    rules {
+        rule_console_block
+        irule_console_redirect_short_URL_prod
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_secure-cookie
+    }
+    snatpool snat_console
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_demo_ims_t1_80 {
+    destination 10.10.12.83:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_demo_ims_t1
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool snat_ims_t1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_demo_ims_t1_443 {
+    destination 10.10.12.83:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_demo_ims_t1
+    profiles {
+        XForward-FOR_http { }
+        iHotelier_Wildcard {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool snat_ims_t1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_emc_80 {
+    destination 10.10.12.51:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+        Irule_dotnettodotcom_443_PROD
+        rule_emc_new_Unscheduled_MTC
+    }
+    snatpool snat_emc_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_emc_443 {
+    destination 10.10.12.51:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_insite_80
+    profiles {
+        http { }
+        tcp { }
+        travelclick.com_allnetsites {
+            context clientside
+        }
+    }
+    rules {
+        rule_block_coldfusion_console
+        rule_emc_new_Unscheduled_MTC
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool snat_emc_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_etrak_80 {
+    destination 10.10.12.70:http
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_etrak_8080
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+        rule_block_jmx_web_console
+        rule_block_keyword_status_block
+    }
+    snatpool snat_etrak_internal
+}
+ltm virtual vs_etrak_443 {
+    destination 10.10.12.70:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_etrak_8080
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+        travelclick.com_allnetsites {
+            context clientside
+        }
+    }
+    rules {
+        rule_block_coldfusion_console
+        rule_block_jmx_web_console
+        rule_block_keyword_status_block
+    }
+    snatpool snat_etrak_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_exch2007_80 {
+    destination 10.10.12.96:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_exch2007_80
+    profiles {
+        http { }
+        tcp { }
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_exch2007_443 {
+    destination 10.10.12.96:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        source_addr {
+            default yes
+        }
+    }
+    pool pool_exch2007_443
+    profiles {
+        tcp { }
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_exch2010_80 {
+    destination 10.10.12.181:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_excaswlm_80
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    snatpool snat_exchange_travelclick.net
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_exch2010_443 {
+    destination 10.10.12.181:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        source_addr {
+            default yes
+        }
+    }
+    pool pool_excaswlm_443
+    profiles {
+        fastL4 { }
+    }
+    snatpool snat_exchange_travelclick.net
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_exch2010_smtp {
+    destination 10.10.12.181:smtp
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        source_addr {
+            default yes
+        }
+    }
+    pool pool_excaswlm_smtp
+    profiles {
+        tcp { }
+    }
+    snatpool snat_exchange_travelclick.net
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_exch_srv_25 {
+    destination 10.10.12.85:smtp
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_exch_srv_smtp
+    profiles {
+        tcp { }
+    }
+    snatpool snat_exchange_travelclick.net
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_exch_srv_80 {
+    destination 10.10.12.85:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        OWA_Cookie {
+            default yes
+        }
+    }
+    profiles {
+        OWA_http { }
+        oneconnect { }
+        tcp {
+            context clientside
+        }
+        tcp-lan-optimized {
+            context serverside
+        }
+    }
+    rules {
+        OWA_exhange
+    }
+    snatpool snat_exchange_travelclick.net
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_exch_srv_443 {
+    destination 10.10.12.85:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        OWA_Cookie {
+            default yes
+        }
+    }
+    pool pool_exch_srv_80
+    profiles {
+        OWA_http { }
+        Profile_wildcard_travelclick.net {
+            context clientside
+        }
+        oneconnect { }
+        tcp {
+            context clientside
+        }
+        tcp-lan-optimized {
+            context serverside
+        }
+    }
+    rules {
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_jmx_web_console
+    }
+    snatpool snat_exchange_travelclick.net
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_gms_80 {
+    destination 10.10.12.167:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_gms_8080
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_keyword_status_block
+        rule_block_jmx_web_console
+    }
+    snatpool snat_gms
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_gms_443 {
+    destination 10.10.12.167:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_gms_8080
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        rule_block_keyword_status_block
+    }
+    snatpool snat_gms
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_gms_dev_80 {
+    destination 10.10.12.205:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_gms_dev_8080
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_gms_dev
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_gms_dev_443 {
+    destination 10.10.12.205:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_gms_dev_8080
+    profiles {
+        Profile_wildcard_travelclick.com_2011_QA {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_gms_dev
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_gmsapps-audit_80 {
+    destination 10.10.12.214:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_gmsapps-audit
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+    }
+    snatpool snat_gmsapps
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_gmsapps-audit_443 {
+    destination 10.10.12.214:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_gmsapps-audit
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+    }
+    snatpool snat_gmsapps
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_gmsapps_80 {
+    destination 10.10.12.175:http
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_gmsapps_80
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_gmsapps_443 {
+    destination 10.10.12.175:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_gmsapps_80
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_guestmanagement-survey.travelclick.com_80 {
+    destination 10.10.12.20:http
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_guestmanagement-survey.travelclick.com
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_gmsapps
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_guestmanagement-survey.travelclick.com_443 {
+    destination 10.10.12.20:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_guestmanagement-survey.travelclick.com
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_gmsapps
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_imanager2.ihotelier.com_80 {
+    destination 10.10.12.135:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        oneconnect { }
+        profile_http_cookie_encrypt { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_imanager2.ihotelier.com_443 {
+    destination 10.10.12.135:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_imanager2.ihotelier.com
+    profiles {
+        oneconnect { }
+        profile_http_cookie_encrypt { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_universal_blocking
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool snat_imanager_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_imanager_80 {
+    destination 10.10.12.66:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_imanager_443 {
+    destination 10.10.12.66:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_imanager_8080
+    profiles {
+        oneconnect { }
+        profile_http_cookie_encrypt { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_coldfusion_console
+        rule_secure-cookie
+    }
+    snatpool snat_imanager_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite-d1_80 {
+    destination 10.10.12.179:http
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool Insite-d1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite-d1_443 {
+    destination 10.10.12.179:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool insite-d1
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ihotelier_wildcard_qa {
+            context clientside
+        }
+        tcp { }
+    }
+    snatpool Insite-d1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite-t1_80 {
+    destination 10.10.12.177:http
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_insite-t1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite-t1_443 {
+    destination 10.10.12.177:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool insite-t1
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snatpool snat_insite-t1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite-t2_80 {
+    destination 10.10.12.76:http
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite-t2_443 {
+    destination 10.10.12.76:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Insite-t2
+    profiles {
+        http { }
+        profile_travelclick_wildcard_qa {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+    }
+    snatpool snat_insite-t2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite_80 {
+    destination 10.10.12.50:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        oneconnect { }
+        tcp-lan-optimized {
+            context serverside
+        }
+        tcp-wan-optimized {
+            context clientside
+        }
+    }
+    rules {
+        Irule_dotnettodotcom_443_PROD
+        rule_emc_new_Unscheduled_MTC
+    }
+    snatpool snat_insite_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite_443 {
+    destination 10.10.12.50:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_insite_80
+    profiles {
+        http { }
+        tcp { }
+        travelclick.com_allnetsites {
+            context clientside
+        }
+    }
+    rules {
+        rule_emc-insite-forums_MTC_UnScheduled
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_jmx_web_console
+    }
+    snatpool snat_insite_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite_d2_80 {
+    destination 10.10.12.146:http
+    fallback-persistence source_addr
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool Snat_insite_d2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite_d2_443 {
+    destination 10.10.12.146:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_insite_d2
+    profiles {
+        profile_http_x-forward-for { }
+        profile_travelclick_wildcard_qa {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snatpool Snat_insite_d2
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite_t3_80 {
+    destination 10.10.12.176:http
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    snatpool snat_insite_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_insite_t3_443 {
+    destination 10.10.12.176:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Insite-t3
+    profiles {
+        Profile_wildcard_travelclick.com_2011_QA {
+            context clientside
+        }
+        http { }
+        tcp { }
+    }
+    snatpool snat_insite_t3
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_is3_t4_80 {
+    destination 10.10.12.137:http
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_is3_t4_8080
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snatpool snat_is3_t4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_mobile-T1_443 {
+    destination 10.10.12.97:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Pool_mobile_T1
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snatpool Snat_mobile_T1
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_mobile-t2_80 {
+    destination 10.10.12.180:http
+    fallback-persistence source_addr
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool mobile-t2_snat
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_mobile-t2_443 {
+    destination 10.10.12.180:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool mobile-t2
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    snatpool mobile-t2_snat
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_mobile_80 {
+    destination 10.10.12.57:http
+    disabled
+    fallback-persistence source_addr
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_mobile_ldc
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_mobile_443 {
+    destination 10.10.12.57:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_mobile
+    profiles {
+        Profile_wildcard.ihotelier.com_NO_SSLV3 {
+            context clientside
+        }
+        profile_http_cookie_encrypt { }
+        tcp { }
+    }
+    rules {
+        rule_universal_blocking
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool snat_mobile_ldc
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_mobile_T1_80 {
+    destination 10.10.12.97:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_mobile_T4_80 {
+    destination 10.10.12.98:http
+    fallback-persistence source_addr
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_mobile_T4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_mobile_T4_443 {
+    destination 10.10.12.98:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_mobile_T4
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ihotelier_wildcard_qa {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snatpool snat_mobile_T4
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_new_booking_80 {
+    destination 10.10.12.163:http
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_booking_8080
+    profiles {
+        http { }
+        tcp { }
+    }
+    snatpool booking_new
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_new_ota_http {
+    destination 10.10.12.158:http
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_new_ota_8080
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_ota_https_redirect
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+    }
+    snatpool snat_new_ota_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_new_ota_https {
+    destination 10.10.12.158:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_new_ota_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+    }
+    snatpool snat_new_ota_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ns2tcp_53 {
+    destination 10.10.12.136:domain
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_ns2_53
+    profiles {
+        tcp { }
+    }
+    snat automap
+}
+ltm virtual vs_ns2tcp_temp_53 {
+    destination 10.10.136.30:domain
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_ns2_temp_53
+    profiles {
+        tcp { }
+    }
+}
+ltm virtual vs_ns2udp_53 {
+    destination 10.10.12.136:domain
+    ip-protocol udp
+    mask 255.255.255.255
+    pool pool_ns2_53
+    profiles {
+        udp { }
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ns2udp_temp_53 {
+    destination 10.10.136.30:domain
+    ip-protocol udp
+    mask 255.255.255.255
+    pool pool_ns2_temp_53
+    profiles {
+        udp { }
+    }
+}
+ltm virtual vs_ota2_t6.ihotelier.com_80 {
+    destination 10.10.12.174:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_ota2_t6_8080
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_ota_t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota2_t6.ihotelier.com_443 {
+    destination 10.10.12.174:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota2_t6_8080
+    profiles {
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool snat_ota_t6
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota-t3_ihotelier.com_80 {
+    destination 10.10.12.82:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Pool_ota-t3_ihotelier.com_80
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_ota_https_redirect
+        rule_block_keyword_status_block
+    }
+    snatpool Snat_ota-t3_ihotelier.com_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota-t4_ihotelier.com_80 {
+    destination 10.10.12.89:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Pool_ota-t4_ihotelier.com_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_ota_https_redirect
+        rule_block_jmx_web_console_QA
+        rule_block_keyword_status_block
+    }
+    snatpool Snat_ota-t4_ihotelier.com_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota-t4_ihotelier.com_443 {
+    destination 10.10.12.89:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Pool_ota-t4_ihotelier.com_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool Snat_ota-t4_ihotelier.com_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota_api_80 {
+    destination 10.10.12.58:http
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_ota_api_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_ota_https_redirect
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+    }
+    snatpool snat_ota_api_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota_api_443 {
+    destination 10.10.12.58:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_ota_api_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool snat_ota_api_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota_gch_api_443 {
+    destination 10.10.12.196:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota_ghc_api_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool snat_ota_gch_api_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota_ghc_api_80 {
+    destination 10.10.12.196:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota_ghc_api_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_ota_https_redirect
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+    }
+    snatpool snat_ota_gch_api_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota_t3_80 {
+    destination 10.10.12.47:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota_t3_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_keyword_status_block
+        rule_block_jmx_web_console_QA
+    }
+    snatpool snat_ota_t3
+}
+ltm virtual vs_ota_xapi_80 {
+    destination 10.10.12.183:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_ota_xapi_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_ota_https_redirect
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+    }
+    snatpool snat_ota_xapi_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota_xapi_443 {
+    destination 10.10.12.183:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    pool pool_ota_xapi_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool snat_ota_xapi_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota_xapi_t5_80 {
+    destination 10.10.12.204:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota_xapi_t5_8080
+    profiles {
+        http { }
+        oneconnect { }
+        tcp { }
+    }
+    rules {
+        irule_ota_https_redirect
+        rule_block_keyword_status_block
+        rule_block_jmx_web_console_QA
+    }
+    snatpool ota_api_t5_80
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_ota_xapi_t5_443 {
+    destination 10.10.12.204:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_ota_xapi_t5_8080
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        profile_ssl_wildcard_2012_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+        irule_TLS-regnotiation_Bug_Tracker_36935
+        rule_block_keyword_status_block
+    }
+    snatpool ota_api_t5_80
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_pms_connect_80 {
+    destination 10.10.12.77:http
+    disabled
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_pms_connect_443 {
+    destination 10.10.12.77:https
+    disabled
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_pms_connect_8080
+    profiles {
+        oneconnect { }
+        profile_http_cookie_encrypt { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console
+        rule_block_keyword_status
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool snat_pms_connect_inside
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_pmsconnect_80 {
+    destination 10.10.12.87:http
+    disabled
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_pmsconnect_443 {
+    destination 10.10.12.87:https
+    disabled
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        profile_cookie_encrypt {
+            default yes
+        }
+    }
+    pool pool_pms_connect_new_8080
+    profiles {
+        profile_http_cookie_encrypt { }
+        profile_ssl_wildcard_ihotelier {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        irule_TLS-regnotiation_Bug_Tracker_36935_020211
+        rule_block_keyword_status
+        rule_block_jmx_web_console
+    }
+    snatpool snat_pmsconnect_new_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_protel-test_443 {
+    destination 10.10.12.215:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_protel-test
+    profiles {
+        Profile_wildcard_travelclick.com_2011 {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_secure-cookie
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_protel-test_8080 {
+    destination 10.10.12.215:webcache
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_protel-test
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_universal_blocking
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_resv_test_80 {
+    destination 10.10.12.55:http
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool snat_reservations_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_resv_test_443 {
+    destination 10.10.12.55:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_insite_80
+    profiles {
+        Profile_wildcard_travelclick.net {
+            context clientside
+        }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_jmx_web_console
+    }
+    snatpool snat_reservations_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_rvuiqa_80 {
+    destination 10.10.12.49:http
+    http-class {
+        http_https_redirection
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    snat automap
+}
+ltm virtual vs_rvuiqa_443 {
+    destination 10.10.12.49:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_rvuiqa_80
+    profiles {
+        http { }
+        profile_travelclick_wildcard_qa {
+            context clientside
+        }
+        tcp { }
+    }
+    rules {
+        rule_block_jmx_web_console_QA
+    }
+    snat automap
+}
+ltm virtual vs_schedule_IMS_Splash_Page {
+    destination 10.10.31.250:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_secure.trumpcasinos.com_80 {
+    destination 10.10.30.210:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_secure.trumpcasinos.com_443 {
+    destination 10.10.30.210:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        Profile_secure.trumpcasinos.com {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_stride_80 {
+    destination 10.10.12.72:http
+    fallback-persistence source_addr
+    http-class {
+        class_https_redirect
+    }
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    profiles {
+        TCP_custom_1200s_timeout { }
+        http { }
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_stride_443 {
+    destination 10.10.12.72:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        source_addr {
+            default yes
+        }
+    }
+    pool pool_stride_8080
+    profiles {
+        Profile_wildcard_travelclick.net {
+            context clientside
+        }
+        TCP_custom_1200s_timeout {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp-lan-optimized {
+            context serverside
+        }
+    }
+    rules {
+        rule_block_jmx_web_console
+        irule_TLS-renegotiation_Bug_Tracker_36935
+    }
+    snatpool snat_stride_internal
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_test_ims-5 {
+    destination 10.10.30.15:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool IMS-4
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+        rule_snat_local_hosts_ims
+    }
+}
+ltm virtual vs_trumpmarina.com_80 {
+    destination 10.10.30.211:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_trumpmarina.com_443 {
+    destination 10.10.30.211:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        Profile_trumpmarina.com {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_trumpplaza.com_80 {
+    destination 10.10.30.212:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_trumpplaza.com_443 {
+    destination 10.10.30.212:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        Prfile_trumpplaza.com {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_trumptaj.com_80 {
+    destination 10.10.30.213:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_trumptaj.com_443 {
+    destination 10.10.30.213:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool Trump
+    profiles {
+        Profile_trumptaj.com {
+            context clientside
+        }
+        oneconnect { }
+        profile_http_x-forward-for { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snatpool IMS_SNAT_POOL
+    vlans {
+        IMS-VIP
+    }
+    vlans-enabled
+}
+ltm virtual vs_urchin_80 {
+    destination 10.10.12.52:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_urchin_https_redirect
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_urchin_443 {
+    destination 10.10.12.52:https
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_urchin_9999
+    profiles {
+        http { }
+        tcp { }
+        travelclick.com_allnetsites {
+            context clientside
+        }
+    }
+    rules {
+        irule_TLS-renegotiation_Bug_Tracker_36935
+        rule_block_jmx_web_console
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_urchin_9999 {
+    destination 10.10.12.52:distinct
+    ip-protocol tcp
+    mask 255.255.255.255
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_urchin_https_redirect
+    }
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_vmview_80 {
+    destination 10.10.12.92:http
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_vmview
+    profiles {
+        http-lan-optimized-caching { }
+        tcp {
+            context clientside
+        }
+        tcp-lan-optimized {
+            context serverside
+        }
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_vmview_443 {
+    destination 10.10.12.92:https
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        persistense_vmview {
+            default yes
+        }
+    }
+    pool pool_vmview
+    profiles {
+        clientssl_vmview {
+            context clientside
+        }
+        http_vmview { }
+        oneconnect_vmview { }
+        tcp_lan_vmview {
+            context serverside
+        }
+        tcp_wan_vmview {
+            context clientside
+        }
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_web2_bluesqstudios.com_80 {
+    destination 10.10.12.100:http
+    fallback-persistence source_addr
+    ip-protocol tcp
+    mask 255.255.255.255
+    persist {
+        cookie {
+            default yes
+        }
+    }
+    pool pool_urchin_80
+    profiles {
+        http { }
+        tcp { }
+    }
+    rules {
+        rule_block_coldfusion_console
+    }
+    snat automap
+    vlans {
+        external
+    }
+    vlans-enabled
+}
+ltm virtual vs_wildcard_outbound_ftp_21 {
+    destination any:any
+    ip-forward
+    ip-protocol tcp
+    mask any
+    profiles {
+        fastL4 { }
+    }
+    snatpool snat_IMS_IMS-VIP
+    translate-address disabled
+    translate-port disabled
+    vlans {
+        IMS
+    }
+    vlans-enabled
+}
